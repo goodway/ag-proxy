@@ -175,7 +175,8 @@ EOF
 NGINX_CONF="/etc/nginx/nginx.conf"
 
 # Обновление пакетов и установка необходимых утилит
-sudo apt update
+apt update
+apt install -y sudo
 #sudo apt upgrade -y
 
 # Установка дополнительных пакетов
