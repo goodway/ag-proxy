@@ -188,8 +188,9 @@ echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
    # Установка ufw и настройка правил для SSH, HTTP и HTTPS
    sudo apt install ufw -y
-   sudo ufw allow 'OpenSSH'
-   sudo ufw allow 'Nginx Full'
+   sudo ufw allow ssh
+   sudo ufw allow http
+   sudo ufw allow https
    sudo ufw enable
    echo -e "\033[36m Firewall активирован, порты настроены \033[0m"
 fi
