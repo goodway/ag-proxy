@@ -215,12 +215,22 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 fi
 
 
+SETUP_LIMITS=0
 
 read -p $'\033[36m  Убрать soft и hard лимиты по ресурсам ? (для средне и высокопосещаемых проектов) (y/n): ' -n 1 -r
 echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
    setup_limits
+   SETUP_LIMITS=1
+fi
+
+if [ "$SETUP_LIMITS" == 1 ]; then
+    read -p $'\033[36m  Перезапустить систему (y/n): ' -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        reboot
+    fi
 fi
 
 # Установка certbot и python3-certbot-nginx
