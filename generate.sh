@@ -226,13 +226,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
    SETUP_LIMITS=1
 fi
 
-if [ "$SETUP_LIMITS" == 1 ]; then
-    read -p $'\033[36m  Перезапустить систему (y/n): ' -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        reboot
-    fi
-fi
 
 # Установка certbot и python3-certbot-nginx
 sudo apt install certbot python3-certbot-nginx -y
@@ -394,4 +387,12 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
         exit 1
       fi
    fi
+fi
+
+if [ "$SETUP_LIMITS" == 1 ]; then
+    read -p $'\033[36m  Перезапустить систему (y/n): ' -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        reboot
+    fi
 fi
